@@ -1,0 +1,37 @@
+service: lib-lambda
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: eu-west-1
+  stackName: serverless-stack
+  memorySize: 512
+  timeout: 10
+  deploymentBucket:
+    blockPublicAccess: true
+    name: ${ssm:/S3_BUCKET_SERVERLESS}
+  deploymentPrefix: serverless
+  apiGateway:
+    metrics: false
+    apiKeySourceType: HEADER
+    apiKeys:
+      - name: myApiKey
+        value: ${ssm:/API_KEY_SERVERLESS}
+        description: Api key required for call functions
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  send_email:
+    name: send-email
+    handler: src/send_email_sendgrid/send_email_sendgrid.lambda_handler
+    environment:
+      SENDGRID_API_KEY: ${ssm:/SENDGRID_API_KEY}
+      QUEUE_URL: ${ssm:/QUEUE_URL}
+    events:
+      - sqs:
+          arn: ${ssm:/QUEUE_ARN}
+          batchSize: 1
+          maximumBatchingWindow: 10
+          functionResponseType: ReportBatchItemFailures

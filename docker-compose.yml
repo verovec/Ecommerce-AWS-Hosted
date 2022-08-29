@@ -1,0 +1,95 @@
+version: "3.8"
+
+services:
+
+  adminer:
+    image: adminer:4.7.6
+    restart: always
+    ports:
+      - 8081:8080
+  
+  gateway:
+    image: dev-mylittleshopping
+    restart: always
+    volumes:
+      - ./back-end/gateway:/app
+    ports:
+      - 4000:4000
+    env_file:
+      - .env
+
+  auth:
+    image: dev-mylittleshopping
+    restart: always
+    volumes:
+      - ./back-end/auth:/app
+    env_file:
+      - .env
+
+  permissions:
+    image: dev-mylittleshopping
+    restart: always
+    volumes:
+      - ./back-end/permissions:/app
+    env_file:
+      - .env
+  
+  product:
+    image: dev-mylittleshopping
+    restart: always
+    volumes:
+      - ./back-end/product:/app
+    env_file:
+      - .env
+
+  user:
+    image: dev-mylittleshopping
+    restart: always
+    volumes:
+      - ./back-end/user:/app
+    env_file:
+      - .env
+
+  front:
+    build:
+      context: ./front-end
+      dockerfile: dev.dockerfile
+    stdin_open: true
+    restart: always
+    volumes:
+      - ./front-end:/app
+    ports:
+      - 3000:3000
+
+  # rabbitmq:
+  #   image: rabbitmq:3.8-management-alpine
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - '5672:5672'
+  #     - '15672:15672'
+  #   healthcheck:
+  #     test: rabbitmq-diagnostics check_port_connectivity
+  #     interval: 10s
+  #     timeout: 20s
+  #     retries: 20
+
+  # database:
+  #   container_name: mylittleshopping_database
+  #   image: mysql:8.0.3
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+  #     MYSQL_DATABASE: $DB_NAME
+  #   ports:
+  #     - 3306:3306
+  #   volumes:
+  #     - ./db/db_data:/var/lib/mysql
+  #   healthcheck:
+  #     test: mysql $DB_NAME -h 127.0.0.1 -u root --password=$DB_PASSWORD
+  #     interval: 10s
+  #     timeout: 20s
+  #     retries: 20
+
+# volumes:
+#   dbdata:

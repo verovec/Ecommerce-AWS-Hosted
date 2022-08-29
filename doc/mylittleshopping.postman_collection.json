@@ -1,0 +1,1240 @@
+{
+	"info": {
+		"_postman_id": "1d967633-ec6e-4c02-b95d-587add3be50e",
+		"name": "mylittleshopping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"product descritpion\",\n    \"price\": 10,\n    \"name\": \"product name\",\n    \"mark\": \"MArtinoss\",\n    \"quantity\": 20,\n    \"categories\": [{ \"id\": 3 }, { \"id\": 3 }, { \"id\": 1 }],\n    \"tags\": [\n        {\n            \"name\": \"tag1\"\n        },\n        {\n            \"name\": \"tag2\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/products",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/products/22",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/products/37",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 10,\n    \"name\": \"test\",\n    \"quantity\": 10,\n    \"categories\": [{ \"id\": 3 }],\n    \"tags\": [\n        {\n            \"name\": \"tag1\"\n        },\n        {\n            \"name\": \"tag2\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/products/36",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/products?limit=10&page=1&name=test&states=OCCASION,NEW&userIds=15,14&fromPrice=0&toPrice=20&tagNames=tag1,tag2&categoryIds=3",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "test"
+								},
+								{
+									"key": "states",
+									"value": "OCCASION,NEW"
+								},
+								{
+									"key": "userIds",
+									"value": "15,14"
+								},
+								{
+									"key": "fromPrice",
+									"value": "0"
+								},
+								{
+									"key": "toPrice",
+									"value": "20"
+								},
+								{
+									"key": "tagNames",
+									"value": "tag1,tag2"
+								},
+								{
+									"key": "categoryIds",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-12-12",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@test.test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/auth/signup",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@test.test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/auth/signin",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "disable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/disable",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"disable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/enable",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"enable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "bjr",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/15",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users?limit=1&page=3",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "country",
+									"value": "france",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "paris",
+									"type": "text"
+								},
+								{
+									"key": "streetName",
+									"value": "hello",
+									"type": "text"
+								},
+								{
+									"key": "streetNumber",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "postalCode",
+									"value": "75014",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Maison",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/me/addresses",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "city",
+									"value": "rouen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/me/addresses/45",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"addresses",
+								"45"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/addresses/45",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"addresses",
+								"45"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOneByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/addresses/39",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"addresses",
+								"39"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/addresses?limit=1&page=2",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rating",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "count",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hello",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/products/37/ratings",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"37",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByProductId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/products/37/ratings?limit=1&page=2",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"37",
+								"ratings"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "addProduct / updateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "quantity",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/me/cart/products/38",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"cart",
+								"products",
+								"38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/cart/products/31",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"cart",
+								"products",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAllProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/cart/products",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"cart",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOneByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQxNjI5MjEsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0NjM4NjkyMX0.VjMxglllaSe5d14QkDBPUeOy4T2jYyaMFhYpdZYoXqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/cart?page=1&limit=1",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"cart"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/categories",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "addressId",
+									"value": "47",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/orders",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOneByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/orders/40",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"orders",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/15/orders?limit=1&page=2",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"15",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByProductId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/products/38/orders?limit=10",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"products",
+								"38",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dispatch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/orders/34/products/38/dispatch",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"orders",
+								"34",
+								"products",
+								"38",
+								"dispatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllBySellerId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTcxMzMyMzQsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0OTM1NzIzNH0.97uBJDsElWpOMlBxhcMIAIWQO8Mu1Z4v3FySfQweAsg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/seller/orders",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"seller",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wishlist",
+			"item": [
+				{
+					"name": "setProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/15/whishlist/products/31",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"15",
+								"whishlist",
+								"products",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/wishlist?page=0&limit=10",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"wishlist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAllProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/wishlist/products",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"wishlist",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTY1MjY0NzcsInVzZXIiOnsiaWQiOjE1LCJyb2xlcyI6W3siaWQiOjgsIm5hbWUiOiJCVVlFUiJ9XX0sImlhdCI6MTY0ODc1MDQ3N30.YfJ5JnoWRGoMbw73Ho4pysNnjpGysiJ8IY4at_DYs2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/me/wishlist/products/31",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"wishlist",
+								"products",
+								"31"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

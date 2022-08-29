@@ -1,0 +1,25 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.9.0"
+  },
+  "scripts": {
+    "dev": "node app.js",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "aws-sdk": "^2.1124.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
+    "moment": "^2.29.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.17.0",
+    "winston": "^3.6.0",
+    "yup": "^0.32.11"
+  }
+}

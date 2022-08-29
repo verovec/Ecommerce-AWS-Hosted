@@ -1,0 +1,49 @@
+name: auth
+
+type: Backend Service
+
+image:
+  build:
+    dockerfile: Dockerfile
+    cache_from:
+      - 934728862088.dkr.ecr.eu-west-1.amazonaws.com/my-little-shopping/auth:latest
+
+
+http:
+  path: '/'
+  healthcheck: '/healthcheck'
+
+
+environments:
+
+  staging:
+    cpu: 256
+    memory: 512
+    count:
+      range: 1-2
+      cpu_percentage: 60
+      memory_percentage: 70
+      response_time: 2s
+    environments:
+      NODE_ENV: production
+      LOGGER_LEVEL: info
+      TZ: UTC
+    secrets:
+      RABBITMQ_URI: STAGING_MLS_RABBITMQ_URI
+      JWT_SECRET: STAGING_MLS_JWT_SECRET
+
+  production:
+    cpu: 256
+    memory: 512
+    count:
+      range: 1-5
+      cpu_percentage: 60
+      memory_percentage: 70
+      response_time: 2s
+    environments:
+      NODE_ENV: production
+      LOGGER_LEVEL: info
+      TZ: UTC
+    secrets:
+      RABBITMQ_URI: PRODUCTION_MLS_RABBITMQ_URI
+      JWT_SECRET: PRODUCTION_MLS_JWT_SECRET

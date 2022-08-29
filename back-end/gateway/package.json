@@ -1,0 +1,22 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.9.0"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.16",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2"
+  },
+  "scripts": {
+    "dev": "node app.js",
+    "start": "node app.js"
+  }
+}

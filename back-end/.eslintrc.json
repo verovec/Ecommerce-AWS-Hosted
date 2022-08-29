@@ -1,0 +1,81 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "prettier",
+    "plugin:node/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "eqeqeq": "off",
+    "default-case": "off",
+    "prettier/prettier": "error",
+    "prefer-const": "error",
+    "import/prefer-default-export": "off",
+    "func-names": "warn",
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+    "no-shadow": "off",
+    "no-unused-vars": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never"
+      }
+    ],
+    "node/no-missing-import": [
+      "off", //No support for typescript paths, disable for now (import/resolver is enough)
+      {
+        "tryExtensions": [".js", ".ts"]
+      }
+    ],
+    "node/no-missing-require": [
+      "error",
+      {
+        "tryExtensions": [".js", ".ts"]
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".mjs", ".json"]
+      }
+    },
+    "import/extensions": [".js", ".mjs", "ts"]
+  },
+
+  "overrides": [
+    {
+      "files": [
+        "**/tests/*.js",
+        "**/tests/*.ts",
+        "**/*.test.js",
+        "**/*.test.ts"
+      ],
+      "rules": {
+        "node/no-unpublished-require": 0,
+        "node/no-missing-require": 0,
+        "import/no-extraneous-dependencies": 0,
+        "node/no-unpublished-import": 0
+      }
+    }
+  ]
+}

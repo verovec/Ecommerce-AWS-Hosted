@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+  seeders:
+    container_name: mylittleshopping_seeders
+    build: ./back-end/db
+    env_file:
+      - .env
+    volumes:
+      - ./back-end/db:/usr/app/
